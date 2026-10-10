@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IEEE VVITU Student Branch | Breaking Code</title>
+  <meta name="description" content="IEEE Student Branch at VVITU. Register for Breaking Code, learn about IEEE, meet our members and explore events.">
+
+  <!-- Fonts (the site still works offline with fallback fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#home" class="brand">
+        <span class="brand-mark" aria-hidden="true">IEEE</span>
+        <span class="brand-text">VVITU <small>Student Branch</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About IEEE</a></li>
+        <li><a href="#benefits">Membership Benefits</a></li>
+        <li class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Events <span aria-hidden="true">&#9662;</span></button>
+          <ul class="dropdown-menu">
+            <li><a href="#events" data-filter="upcoming">Upcoming Events</a></li>
+            <li><a href="#events" data-filter="past">Past Events</a></li>
+            <li><a href="#events" data-filter="sample">Sample Events</a></li>
+            <li><a href="#events" data-filter="workshop">Workshops</a></li>
+            <li><a href="#events" data-filter="hackathon">Hackathons</a></li>
+          </ul>
+        </li>
+        <li><a href="#members">Our Members</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="btn btn-ghost btn-small" id="loginBtn">Login</button></li>
+        <li><a href="#dashboard" class="btn btn-ghost btn-small" id="dashboardLink" hidden>Dashboard</a></li>
+        <li><a class="btn btn-green btn-small" href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener">Join IEEE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO: BREAKING CODE ============ -->
+    <section class="hero" id="home">
+      <!-- Poster used as a dark, blurred background. The sharp poster is shown on the right. -->
+      <img class="hero-bg" src="images/breaking-code-poster.png" alt="" aria-hidden="true">
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="presents">IEEE VVITU presents</p>
+          <h1 aria-label="Breaking Code">
+            <span aria-hidden="true">
+              <span class="tile">Br<small>35</small></span>eaking
+              <span class="tile">Co<small>27</small></span>de
+            </span>
+          </h1>
+          <p class="tagline">Think. Debug. Break. Build Again.</p>
+          <!-- EDIT: replace this description with the real event description -->
+          <p class="hero-desc">Breaking Code is a technical event from the IEEE VVITU Student Branch where you read broken programs, find what is wrong and fix it. Full description coming soon.</p>
+
+          <!-- EDIT: replace each TBA with the real event detail -->
+          <ul class="detail-chips">
+            <li><strong>Date</strong> TBA</li>
+            <li><strong>Time</strong> TBA</li>
+            <li><strong>Venue</strong> TBA</li>
+            <li><strong>Mode</strong> TBA</li>
+          </ul>
+
+          <div class="hero-buttons">
+            <a href="#register" class="btn btn-green">Register Now</a>
+            <a href="#events" class="btn btn-outline" data-filter="all">View all events</a>
+          </div>
+        </div>
+
+        <figure class="poster-card">
+          <img src="images/breaking-code-poster.png" alt="Breaking Code event poster by IEEE VVITU" width="540" height="530">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 2. REGISTRATION FORM ============ -->
+    <section class="section light" id="register">
+      <div class="container narrow">
+        <h2>Register for Breaking Code</h2>
+        <p class="section-intro">Fill in your details below. Fields marked with * are required.</p>
+
+        <form id="registerForm" class="form-card" novalidate>
+          <div class="field">
+            <label for="regName">Full name *</label>
+            <input type="text" id="regName" name="name" autocomplete="name">
+            <p class="error" id="regName-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="regEmail">College email *</label>
+            <input type="email" id="regEmail" name="email" autocomplete="email">
+            <p class="error" id="regEmail-error" role="alert"></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="regRoll">Roll number *</label>
+              <input type="text" id="regRoll" name="roll">
+              <p class="error" id="regRoll-error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="regBranch">Branch / department *</label>
+              <select id="regBranch" name="branch">
+                <option value="">Select your branch</option>
+                <option>CSE</option><option>ECE</option><option>EEE</option>
+                <option>IT</option><option>AI &amp; ML</option><option>Other</option>
+              </select>
+              <p class="error" id="regBranch-error" role="alert"></p>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="regPhone">Phone number *</label>
+              <input type="tel" id="regPhone" name="phone" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel">
+              <p class="error" id="regPhone-error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="regTeam">Team name (optional)</label>
+              <input type="text" id="regTeam" name="team">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-blue">Submit registration</button>
+          <p class="form-message" id="registerMessage" role="status"></p>
+          <p class="note">
+            <strong>Good to know:</strong> a website with only HTML, CSS and JavaScript cannot store registrations on its own.
+            Until a form service is connected (see README), submissions stay in <em>your own browser</em> and are not sent to IEEE VVITU.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 3. WHAT IS IEEE ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>What is IEEE?</h2>
+        <p class="section-intro">IEEE stands for the <strong>Institute of Electrical and Electronics Engineers</strong>. It is the world's largest professional organisation for people who work with technology.</p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>What it does</h3>
+            <p>IEEE brings together engineers, researchers, teachers and students. It publishes research, organises conferences and writes technical standards, such as the ones used for Wi-Fi.</p>
+          </article>
+          <article class="card">
+            <h3>Why it exists</h3>
+            <p>IEEE's mission is to advance technology for the benefit of humanity. Sharing knowledge, new ideas and research helps everyone build better things.</p>
+          </article>
+          <article class="card">
+            <h3>Why it matters to you</h3>
+            <p>It connects you with a worldwide community of learners and professionals. You can learn from experts, meet people in your field and take part in projects.</p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <h3>What is a Student Branch?</h3>
+          <p>A Student Branch is the IEEE group inside a college. The IEEE VVITU Student Branch runs workshops, competitions and talks, and helps students become part of the wider IEEE community. First-year and second-year students are welcome to take part.</p>
+        </div>
+
+        <h3 class="links-title">Official IEEE links</h3>
+        <ul class="pill-links">
+          <li><a href="https://www.ieee.org" target="_blank" rel="noopener">IEEE.org</a></li>
+          <li><a href="https://students.ieee.org" target="_blank" rel="noopener">IEEE Student Activities</a></li>
+          <li><a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener">IEEE Xplore</a></li>
+          <li><a href="https://ieeer10.org" target="_blank" rel="noopener">IEEE Region 10 (Asia-Pacific)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4. MEMBERSHIP BENEFITS ============ -->
+    <section class="section light" id="benefits">
+      <div class="container">
+        <h2>Why join IEEE?</h2>
+        <p class="section-intro">These are the things IEEE membership can offer students. Some depend on eligibility, fees or availability, so each card says so.</p>
+
+        <div class="grid grid-3">
+          <article class="card benefit"><h3>Learning resources</h3><p>Technical articles and research, including IEEE Xplore.</p><span class="tag">Depends on membership and subscription</span></article>
+          <article class="card benefit"><h3>Networking</h3><p>Meet students, researchers, professors and professionals.</p><span class="tag">Depends on events you attend</span></article>
+          <article class="card benefit"><h3>Workshops and talks</h3><p>Seminars, technical talks and learning opportunities.</p><span class="tag">Depends on event availability</span></article>
+          <article class="card benefit"><h3>Coding competitions</h3><p>Programming contests such as IEEEXtreme.</p><span class="tag">Eligibility and registration apply</span></article>
+          <article class="card benefit"><h3>Projects and communities</h3><p>Join technical communities and innovation activities.</p><span class="tag">Depends on your chapter or society</span></article>
+          <article class="card benefit"><h3>Leadership and teamwork</h3><p>Volunteer, lead a team and improve your communication skills.</p><span class="tag">Depends on open roles</span></article>
+          <article class="card benefit"><h3>Career development</h3><p>Mentorship and professional connections. These do not guarantee jobs or internships.</p><span class="tag">No guarantees</span></article>
+          <article class="card benefit"><h3>Awards and grants</h3><p>Student awards, scholarships, grants and travel support.</p><span class="tag">Eligibility applies</span></article>
+          <article class="card benefit"><h3>Discounts</h3><p>Member prices on some conferences and learning material.</p><span class="tag">Fees may apply</span></article>
+        </div>
+
+        <div class="compare">
+          <div class="card">
+            <h3>From IEEE (global)</h3>
+            <p>Membership benefits, IEEE Xplore access, global competitions, awards and discounts. These come from IEEE itself and follow IEEE's own rules and fees.</p>
+          </div>
+          <div class="card">
+            <h3>From IEEE VVITU (local)</h3>
+            <p>Workshops, quizzes, hackathons and events like Breaking Code run by our student branch at the college. Anyone can ask the branch about joining.</p>
+          </div>
+        </div>
+
+        <p class="note center">IEEE VVITU does not promise placements, internships, scholarships or certificates. Check the official page for current details.</p>
+        <p class="center"><a class="btn btn-blue" href="https://students.ieee.org/membership-benefits/student-membership-benefits/" target="_blank" rel="noopener">Explore IEEE Membership</a></p>
+      </div>
+    </section>
+
+    <!-- ============ 5. ANNOUNCEMENTS ============ -->
+    <section class="section" id="announcements">
+      <div class="container narrow">
+        <h2>Announcements</h2>
+        <p class="section-intro">Recruitment, deadlines, workshops and IEEE notices. These are sample notices until you replace them.</p>
+        <ul class="announce-list" id="announcementList"></ul>
+      </div>
+    </section>
+
+    <!-- ============ 6. EVENTS ============ -->
+    <section class="section light" id="events">
+      <div class="container">
+        <h2>Events</h2>
+        <p class="section-intro">Breaking Code is our real upcoming event. The other cards are <strong>sample events</strong> for demonstration and are not officially confirmed.</p>
+
+        <div class="filters" id="eventFilters" role="group" aria-label="Filter events">
+          <button class="chip active" data-filter="all">All Events</button>
+          <button class="chip" data-filter="upcoming">Upcoming</button>
+          <button class="chip" data-filter="past">Past Events</button>
+          <button class="chip" data-filter="workshop">Workshops</button>
+          <button class="chip" data-filter="hackathon">Hackathons</button>
+          <button class="chip" data-filter="sample">Sample Events</button>
+        </div>
+
+        <div class="grid grid-3" id="eventGrid"></div>
+        <p class="empty" id="eventEmpty" hidden>No events match this filter yet.</p>
+      </div>
+    </section>
+
+    <!-- ============ 7. MEMBERS DIRECTORY ============ -->
+    <section class="section" id="members">
+      <div class="container">
+        <h2>Meet Our IEEE Members</h2>
+        <p class="section-intro">The people behind IEEE VVITU.</p>
+        <p class="note center"><strong>Sample profiles:</strong> these are demo placeholders, not real IEEE VVITU members. Replace them in <code>script.js</code> (see README).</p>
+
+        <div class="toolbar">
+          <label class="sr-only" for="memberSearch">Search members by name or role</label>
+          <input type="search" id="memberSearch" placeholder="Search by name or role">
+          <label class="sr-only" for="memberRole">Filter by role</label>
+          <select id="memberRole"><option value="">All roles</option></select>
+        </div>
+
+        <div class="grid grid-4" id="memberGrid"></div>
+        <p class="empty" id="memberEmpty" hidden>No members found. Try a different search.</p>
+        <p class="center"><button class="btn btn-outline-dark" id="memberMore">View all members</button></p>
+      </div>
+    </section>
+
+    <!-- ============ 8. LEADERSHIP TEAM ============ -->
+    <section class="section light" id="team">
+      <div class="container">
+        <h2>Our Team</h2>
+        <p class="section-intro">The faculty coordinator and student office bearers who organise the branch.</p>
+        <p class="note center"><strong>Sample data:</strong> replace with verified names and roles.</p>
+        <div class="grid grid-3 team-grid" id="teamGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 9. GALLERY ============ -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="section-intro">Workshops, hackathons, technical events and student activities. Select a picture to view it larger. These are sample images until you add real photos.</p>
+        <div class="grid grid-4 gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 10. RESOURCES ============ -->
+    <section class="section light" id="resources">
+      <div class="container">
+        <h2>Technical Resources</h2>
+        <p class="section-intro">Good places to learn, practise and explore.</p>
+        <div class="grid grid-3" id="resourceGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 11. DASHBOARD (shown after demo login) ============ -->
+    <section class="section" id="dashboard" hidden>
+      <div class="container">
+        <h2>Member Dashboard</h2>
+        <p class="note"><strong>Demo login:</strong> this uses your browser's storage only. There is no password and nothing is secure or shared. A real login needs a backend (see README).</p>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Your profile</h3>
+            <p><strong id="dashName"></strong></p>
+            <p id="dashEmail"></p>
+            <p class="small">IEEE membership: this site cannot check it. Check on <a href="https://www.ieee.org" target="_blank" rel="noopener">ieee.org</a>.</p>
+            <button class="btn btn-outline-dark btn-small" id="logoutBtn">Sign out</button>
+          </article>
+          <article class="card">
+            <h3>Your registered events</h3>
+            <ul class="plain-list" id="dashEvents"></ul>
+          </article>
+          <article class="card">
+            <h3>Upcoming workshops</h3>
+            <ul class="plain-list" id="dashWorkshops"></ul>
+          </article>
+          <article class="card">
+            <h3>Latest announcements</h3>
+            <ul class="plain-list" id="dashAnnouncements"></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. FEEDBACK ============ -->
+    <section class="section light" id="feedback">
+      <div class="container narrow">
+        <h2>Feedback and Suggestions</h2>
+        <p class="section-intro">Tell us how an event went and what workshop you would like next.</p>
+
+        <form id="feedbackForm" class="form-card" novalidate>
+          <div class="field">
+            <label for="fbEvent">Which event? *</label>
+            <select id="fbEvent" name="event"></select>
+            <p class="error" id="fbEvent-error" role="alert"></p>
+          </div>
+
+          <fieldset class="field rating">
+            <legend>Overall rating *</legend>
+            <div class="rating-options">
+              <input type="radio" id="star1" name="rating" value="1"><label for="star1">1 &#9733;</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2">2 &#9733;</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3">3 &#9733;</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4">4 &#9733;</label>
+              <input type="radio" id="star5" name="rating" value="5"><label for="star5">5 &#9733;</label>
+            </div>
+            <p class="error" id="fbRating-error" role="alert"></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="fbComments">Your comments *</label>
+            <textarea id="fbComments" name="comments" rows="4" maxlength="500"></textarea>
+            <p class="error" id="fbComments-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="fbSuggestion">Suggest a future workshop (optional)</label>
+            <input type="text" id="fbSuggestion" name="suggestion" placeholder="For example: Web development, AI/ML, IoT">
+          </div>
+
+          <button type="submit" class="btn btn-blue">Send feedback</button>
+          <p class="form-message" id="feedbackMessage" role="status"></p>
+          <p class="note">Until a form service is connected (see README), feedback is saved only in your browser and is not sent to IEEE VVITU.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 13. CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container narrow">
+        <h2>Contact</h2>
+        <p class="section-intro">Add the branch's real details in the <code>CONFIG</code> block at the top of <code>script.js</code>.</p>
+        <ul class="contact-list" id="contactList"></ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">IEEE VVITU Student Branch</p>
+        <p class="small">This is a student branch website. IEEE is a trademark of the Institute of Electrical and Electronics Engineers. Some content on this site is sample content.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About IEEE</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="copyright">&copy; <span id="year"></span> IEEE VVITU Student Branch</p>
+  </footer>
+
+  <!-- ============ POP-UP WINDOWS ============ -->
+  <dialog id="loginDialog" aria-labelledby="loginTitle">
+    <form id="loginForm" novalidate>
+      <h3 id="loginTitle">Demo login</h3>
+      <p class="small">No password needed. Your name and email stay in this browser only.</p>
+      <div class="field">
+        <label for="loginName">Name *</label>
+        <input type="text" id="loginName" autocomplete="name">
+        <p class="error" id="loginName-error" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="loginEmail">Email *</label>
+        <input type="email" id="loginEmail" autocomplete="email">
+        <p class="error" id="loginEmail-error" role="alert"></p>
+      </div>
+      <div class="dialog-buttons">
+        <button type="submit" class="btn btn-blue">Sign in</button>
+        <button type="button" class="btn btn-outline-dark" data-close>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="eventDialog" aria-labelledby="eventDialogTitle">
+    <div id="eventDialogBody"></div>
+    <div class="dialog-buttons">
+      <a href="#register" class="btn btn-green" id="eventRegisterBtn">Register</a>
+      <button type="button" class="btn btn-outline-dark" data-close>Close</button>
+    </div>
+  </dialog>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Image preview">
+    <button class="lb-close" data-close aria-label="Close preview">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#10094;</button>
+    <figure>
+      <img id="lbImage" src="" alt="">
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#10095;</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
